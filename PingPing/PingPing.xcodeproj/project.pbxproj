@@ -13,6 +13,7 @@
 		BAE260491EE2D9B0003E4B42 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE260481EE2D9B0003E4B42 /* Images.xcassets */; };
 		BAE2604C1EE2D9B0003E4B42 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE2604A1EE2D9B0003E4B42 /* LaunchScreen.xib */; };
 		BAE260581EE2D9B0003E4B42 /* PingPingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE260571EE2D9B0003E4B42 /* PingPingTests.swift */; };
+		BAF110D31EF1EB8500B51973 /* alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF110D21EF1EB8500B51973 /* alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		BAE260511EE2D9B0003E4B42 /* PingPingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PingPingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE260561EE2D9B0003E4B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAE260571EE2D9B0003E4B42 /* PingPingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPingTests.swift; sourceTree = "<group>"; };
+		BAF110D21EF1EB8500B51973 /* alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = alert.swift; path = ../alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		BAE2603E1EE2D9B0003E4B42 /* PingPing */ = {
 			isa = PBXGroup;
 			children = (
+				BAF110D21EF1EB8500B51973 /* alert.swift */,
 				BAE260411EE2D9B0003E4B42 /* AppDelegate.swift */,
 				BAE260431EE2D9B0003E4B42 /* ViewController.swift */,
 				BAE260451EE2D9B0003E4B42 /* Main.storyboard */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAE260441EE2D9B0003E4B42 /* ViewController.swift in Sources */,
+				BAF110D31EF1EB8500B51973 /* alert.swift in Sources */,
 				BAE260421EE2D9B0003E4B42 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -42,13 +42,21 @@ class ViewController: UIViewController {
         viewScore1.text = "0"
         viewScore2.text = "0"
         self.displaymessage("Ready to go?")
-    }
+            }
     func displaymessage(msg:String)->()
     {
         self.stop()
         alert = UIAlertController(title: "GAME", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
-        alert?.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{action in self.reset()
+        alert?.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{action in
+            if self.gameOver() > 0
+            {
+                self.newGame()
+                return
+            }
+            self.reset()
         self.start()}))
+        self.viewDidAppear(true)
+        
         // Сюда в handler хочу вставить проверку условия if self.gameOver > 0 {self.newGame()}
         // Тем самым можно проверять закончилась ли игра и можно начинать новый раунд
     }
@@ -75,11 +83,25 @@ class ViewController: UIViewController {
         self.checkBallCollision(wallLeft.frame, Dirx: fabs(dx), Diry: 0)
         self.checkBallCollision(wallRight.frame, Dirx: -fabs(dx), Diry: 0)
         
-        self.checkBallCollision(paddle1.frame, Dirx: Float(ball.center.x - paddle1.center.x)/32.0, Diry: -1)
-        self.checkBallCollision(paddle2.frame, Dirx: Float(ball.center.x - paddle2.center.x)/32.0, Diry: 1)
+        if(self.checkBallCollision(paddle1.frame, Dirx: Float(ball.center.x - paddle1.center.x)/32.0, Diry: -1))
+        {
+            self.increaseSpeed()
+        }
+        if(self.checkBallCollision(paddle2.frame, Dirx: Float(ball.center.x - paddle2.center.x)/32.0, Diry: 1))
+        {
+            self.increaseSpeed()
+        }
         self.checkGoal()
         
         
+    }
+    func increaseSpeed()
+    {
+        speed += 0.5
+        if speed > 10
+        {
+            speed = 10
+        }
     }
     func checkGoal()->Bool {
         if ball.center.y > 650 || ball.center.y < 10 {
@@ -94,7 +116,7 @@ class ViewController: UIViewController {
             }
             viewScore1.text = toString(s1!)
             viewScore2.text = toString(s2!)
-            /*
+            
            if (self.gameOver() == 1)
             {
                 self.displaymessage("Player 1 has won")
@@ -103,7 +125,6 @@ class ViewController: UIViewController {
             {
                 self.displaymessage("Player 2 has won")
             }
-              */
             self.reset()
         
             return true
@@ -193,10 +214,20 @@ class ViewController: UIViewController {
         }
         }
     }
+    func pause()
+    {
+        self.stop()
+    }
+    func resume()
+    {
+        self.displaymessage("Continue?")
+    }
+    
     override func viewDidAppear(animated: Bool) {
     self.presentViewController(alert!, animated: true, completion: nil)
-        
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.newGame()
@@ -208,7 +239,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+  
 
 }
-
